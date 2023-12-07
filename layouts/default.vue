@@ -1,60 +1,29 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar flat>
-      <v-container class="mx-auto d-flex align-center justify-center">
-        <v-avatar
-          class="me-4 "
-          color="grey-darken-1"
-          size="32"
-        ></v-avatar>
+    <v-navigation-drawer v-model="drawer">
+      <!--  -->
+    </v-navigation-drawer>
 
-        <v-btn
-          v-for="link in links"
-          :key="link"
-          :text="link"
-          variant="text"
-        ></v-btn>
+    <v-app-bar>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-spacer></v-spacer>
-
-        <v-responsive max-width="160">
-          <v-text-field
-            density="compact"
-            flat
-            hide-details
-            label="Search"
-            rounded="lg"
-            single-line
-            variant="solo-filled"
-          ></v-text-field>
-        </v-responsive>
-      </v-container>
+      <v-app-bar-title>Lista de la Compra</v-app-bar-title>
     </v-app-bar>
 
-    <v-main class="bg-grey-lighten-3"> 
-         <slot/> <!-- añadimos el slot, nuxt lo sustituye por la página actual -->
+    <v-main>
+      <slot/>
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-  const links = [
-    'Dashboard',
-    'Messages',
-    'Profile',
-    'Updates',
-  ]
+  import { ref } from 'vue'
+
+  const drawer = ref(null)
 </script>
 
 <script>
   export default {
-    data: () => ({
-      links: [
-        'Dashboard',
-        'Messages',
-        'Profile',
-        'Updates',
-      ],
-    }),
+    data: () => ({ drawer: null }),
   }
 </script>
