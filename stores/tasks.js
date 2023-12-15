@@ -16,14 +16,19 @@ export const useTasksStore =
             tasks.value.filter((t) => !t.done))
 
         function addTask(action) {
-            tasks.value.push({action, done: false})
+            tasks.value.push({action, done: false})         
         }
 
-        function setTaskDone (action) {
+        function deleteTasks() {
+            tasks.value = [];
+        }
+
+        function setTaskDone(action) {
             const task = tasks.value.find((t) =>
                 t.action === action)
             if (task) task.done = true
+
         }
 
-        return {tasks, done, pending, addTask, setTaskDone}
+        return {tasks, done, pending, addTask, setTaskDone, deleteTasks}
     })

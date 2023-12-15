@@ -18,7 +18,9 @@
 
 </template>
 <script setup>
-   import {useTasksStore} from "~/stores/tasks.js"
-   const store = useTasksStore()
+   import {useTasksFirebaseStore} from "~/stores/tasksfirebase.js"
+   const store = useTasksFirebaseStore()
+    onMounted(() => store.subscribe())
+    onUnmounted(() => store.unsubscribe())
    const name=ref('')
 </script>

@@ -5,7 +5,7 @@
     </v-navigation-drawer>
 
     <v-app-bar>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <!--<v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>-->
 
       <v-app-bar-title>Lista de la Compra</v-app-bar-title>
     </v-app-bar>
